@@ -19,6 +19,7 @@ public class cloudScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Hello
         //The position of the cloud at the start of the game is cache'd
         startingPos = this.gameObject.transform.position;
     }
