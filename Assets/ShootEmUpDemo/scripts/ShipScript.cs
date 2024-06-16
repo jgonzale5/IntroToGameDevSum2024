@@ -11,11 +11,11 @@ public class ShipScript : MonoBehaviour
     public Rigidbody rb;
 
     [Header("Animations")]
-    //
+    //The animator controller for the ship
     public Animator animator;
-    //
+    //The name of the parameter that controls horizontal movement animations in the controller
     public string xMov_Name = "xMov";
-    //
+    //The name of the parameter that controls vertical movement animations in the controller
     public string yMov_Name = "yMov";
 
     // Update is called once per frame
@@ -28,9 +28,8 @@ public class ShipScript : MonoBehaviour
         newVelocity.x = xSpeed * Input.GetAxis("Horizontal");
         newVelocity.y = ySpeed * Input.GetAxis("Vertical");
 
-        //
+        //We update the parameters with the specified names to match the velocity of the object
         animator.SetInteger(xMov_Name, Mathf.RoundToInt(newVelocity.x));
-        //
         animator.SetInteger(yMov_Name, Mathf.RoundToInt(newVelocity.y));
 
         //The rigidbogy velocidy is updated
