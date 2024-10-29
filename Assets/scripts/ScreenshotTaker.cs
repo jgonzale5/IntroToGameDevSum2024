@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ScreenshotTaker : MonoBehaviour
 {
-    public KeyCode key;
+    public KeyCode key = KeyCode.Return;
     public string format = ".png";
 
     // Update is called once per frame
@@ -19,7 +20,11 @@ public class ScreenshotTaker : MonoBehaviour
 
             ScreenCapture.CaptureScreenshot(string.Format("{0}/{1}{2}", Application.persistentDataPath, filename, format));
 
-            Debug.Log("Screenshot saved.");
+            string path = Path.Combine(Application.persistentDataPath, Path.GetFileName(filename));
+
+            Debug.Log("Screenshot saved at " + path + ".");
+
+            Application.OpenURL(Application.persistentDataPath);
         }
     }
 }
